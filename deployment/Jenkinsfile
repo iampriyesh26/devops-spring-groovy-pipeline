@@ -10,7 +10,7 @@ stages {
 stage('Build') {
 steps {
 // Get some code from a GitHub repository
-git 'https://github.com/Ankit-0212/devops-spring-groovy-pipeline.git&#39;
+git url:'https://github.com/iampriyesh26/devops-spring-groovy-pipeline.git'
 
 script{
                if(isUnix()){
