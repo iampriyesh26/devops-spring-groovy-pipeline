@@ -48,7 +48,7 @@ pipeline {
                 success {
                 jacoco{
                 	execPattern: '**/target/jacoco/*.exec',
-                	classpattern: '**/target/classes/com/app',
+                	classpattern: '**/target/classes/com/myapp',
                 	sourcePattern: '**/src/main'
                 }
                     junit '**/target/surefire-reports/TEST-*.xml'
