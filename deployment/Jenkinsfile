@@ -10,7 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/iampriyesh26/devops-spring-groovy-pipeline.git'
+                git url: 'https://github.com/iampriyesh26/devops-spring-groovy-pipeline.git
+                '
 
                 // Run Maven on a Unix agent.
                 script{
@@ -48,7 +49,7 @@ pipeline {
                 success {
                     jacoco(
                     execPattern: '**/target/jacoco/*.exec',
-                    classPattern: '**/target/classes/com/myapp',
+                    classPattern: '**/target/classes/',
                     sourcePattern: '**/src/main'
                     
                     )
