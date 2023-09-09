@@ -47,8 +47,8 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                 jacoco{
-                	execPattern: '**/build/jacoco/*.exec',
-                	classpattern: '**/build/classes/groovy/main',
+                	execPattern: '**/target/jacoco/*.exec',
+                	classpattern: '**/target/classes/com/app',
                 	sourcePattern: '**/src/main'
                 }
                     junit '**/target/surefire-reports/TEST-*.xml'
