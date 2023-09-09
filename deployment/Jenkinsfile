@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/iampriyesh26/devops-spring-groovy-pipeline.git'
+                git url: 'https://github.com/krishnamurthypradeep/devops-spring-groovy-pipeline.git'
 
                 // Run Maven on a Unix agent.
                 script{
@@ -46,13 +46,15 @@ pipeline {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
-                jacoco{
-                	execPattern: '**/target/jacoco/*.exec',
-                	classpattern: '**/target/classes/com/myapp',
-                	sourcePattern: '**/src/main'
-                }
+                    jacoco(
+                    execPattern: '**/target/jacoco/*.exec',
+                    classPattern: '**/target/classes/com/myapp',
+                    sourcePattern: '**/src/main'
+                    
+                    )
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
+                    
                 }
             }
             
