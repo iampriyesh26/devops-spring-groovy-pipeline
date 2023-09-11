@@ -4,73 +4,74 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>devops-spring-groovy-ibm</groupId>
-	<artifactId>devops-spring-groovy</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>devops-spring-groovy</name>
-	<description>Demo project for Spring Boot</description>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
-	<distributionManagement>
+         <artifactId>spring-boot-starter-parent</artifactId>
+         <version>3.1.3</version>
+         <relativePath/> <!-- lookup parent from repository -->
+     </parent>
+     <groupId>devops-spring-groovy-ibm</groupId>
+     <artifactId>devops-spring-groovy</artifactId>
+     <version>0.0.1-SNAPSHOT</version>
+     <name>devops-spring-groovy</name>
+     <description>Demo project for Spring Boot</description>
+     <properties>
+         <java.version>17</java.version>
+     </properties>
+     <distributionManagement>
     <repository>
         <id>central</id>
-        <name>IBM-PF3PESYA-releases</name>
-        <url>http://localhost:8081/artifactory/libs-release-local</url>
+        <name>IBM-PF31M246-releases</name>
+        <url>http://localhost:8081/artifactory/libs-release</url>
     </repository>
-
+  
     <snapshotRepository>
         <id>snapshots</id>
-        <name>IBM-PF3PESYA-snapshots</name>
+        <name>IBM-PF31M246-snapshots</name>
         <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
     </snapshotRepository>
 </distributionManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.groovy</groupId>
-			<artifactId>groovy</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.spockframework/spock-core -->
-		<dependency>
-		    <groupId>org.spockframework</groupId>
-		    <artifactId>spock-core</artifactId>
-		    <version>2.4-M1-groovy-4.0</version>
-		    <scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.spockframework/spock-spring -->
-		<dependency>
-		    <groupId>org.spockframework</groupId>
-		    <artifactId>spock-spring</artifactId>
-		    <version>2.4-M1-groovy-4.0</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-	    <groupId>io.rest-assured</groupId>
-	    <artifactId>spring-mock-mvc</artifactId>
-	    <scope>test</scope>
-	    </dependency>
+     <dependencies>
+         <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-actuator</artifactId>
+         </dependency>
+         <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-data-mongodb</artifactId>
+         </dependency>
+         <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-web</artifactId>
+         </dependency>
+         <dependency>
+              <groupId>org.apache.groovy</groupId>
+              <artifactId>groovy</artifactId>
+         </dependency>
+
+         <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-test</artifactId>
+              <scope>test</scope>
+         </dependency>
+         <!-- https://mvnrepository.com/artifact/org.spockframework/spock-core -->
+         <dependency>
+             <groupId>org.spockframework</groupId>
+             <artifactId>spock-core</artifactId>
+             <version>2.4-M1-groovy-4.0</version>
+             <scope>test</scope>
+         </dependency>
+         <!-- https://mvnrepository.com/artifact/org.spockframework/spock-spring -->
+         <dependency>
+             <groupId>org.spockframework</groupId>
+             <artifactId>spock-spring</artifactId>
+             <version>2.4-M1-groovy-4.0</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+         <groupId>io.rest-assured</groupId>
+         <artifactId>spring-mock-mvc</artifactId>
+         <scope>test</scope>
+         </dependency>
    
   
        
@@ -79,34 +80,33 @@
         <artifactId>hibernate-validator</artifactId>
         <version>5.4.2.Final</version>
         </dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.gmavenplus</groupId>
-				<artifactId>gmavenplus-plugin</artifactId>
-				<version>1.13.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>addSources</goal>
-							<goal>addTestSources</goal>
-							<goal>generateStubs</goal>
-							<goal>compile</goal>
-							<goal>generateTestStubs</goal>
-							<goal>compileTests</goal>
-							<goal>removeStubs</goal>
-							<goal>removeTestStubs</goal>
-						</goals>
-					</execution>
-				</executions>
-				
-			</plugin>
-			<plugin>
+     </dependencies>
+     <build>
+         <plugins>
+              <plugin>
+                   <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-maven-plugin</artifactId>
+              </plugin>
+              <plugin>
+                   <groupId>org.codehaus.gmavenplus</groupId>
+                  <artifactId>gmavenplus-plugin</artifactId>
+                  <version>1.13.1</version>
+                  <executions>
+                       <execution>
+                           <goals>
+                                <goal>addSources</goal>
+                                <goal>addTestSources</goal>
+                                <goal>generateStubs</goal>
+                                <goal>compile</goal>
+                                <goal>generateTestStubs</goal>
+                                <goal>compileTests</goal>
+                                <goal>removeStubs</goal>
+                                <goal>removeTestStubs</goal>
+                           </goals>
+                       </execution>
+                  </executions>
+              </plugin>
+              <plugin>
 
 <groupId>org.apache.maven.plugins</groupId>
 
@@ -229,7 +229,7 @@
                 </configuration>
 
             </plugin>
-            <plugin>
+<plugin>
 
 <groupId>org.apache.maven.plugins</groupId>
 
@@ -352,7 +352,8 @@
 </configuration>
 
 </plugin>
-		</plugins>
-	</build>
+
+         </plugins>
+     </build>
 
 </project>
