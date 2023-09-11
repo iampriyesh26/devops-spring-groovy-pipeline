@@ -10,38 +10,38 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/iampriyesh26/devops-spring-groovy-pipeline.git'
+                git 'https://github.com/Deepshikha-dey/devops-spring-devops2-pipeline.git'
 
                 // Run Maven on a Unix agent.
                 script{
                 if(isUnix()){
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
-				}	
-                else{
-                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
-                 }
-                 }
+                }
+else{
+bat "mvn -Dmaven.test.failure.ignore=true clean package"
+}
+}
+                
             }
-            }
-            
-           
-           
+
+         }
          stage('Integration Test') {
             steps {
-               
+                
+
                 // Run Maven on a Unix agent.
                 script{
                 if(isUnix()){
                 sh "mvn -Dmaven.test.failure.ignore=true clean verify"
-				}	
-                else{
-                 bat "mvn -Dmaven.test.failure.ignore=true clean verify"
-                 }
-                 }
-            }
-        
-    	
-    	stage('Publish Artifactory') {
+                }
+else{
+bat "mvn -Dmaven.test.failure.ignore=true clean verify"
+}
+}
+}
+}
+    
+    stage('Publish Artifactory') {
 steps {
 
 // Run Maven on a Unix agent.
@@ -57,25 +57,21 @@ bat "mvn -Dmaven.test.failure.ignore=true deploy"
 
    }
     }
-    }
-     post {
+       post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
-                    jacoco(
-                    //execPattern: '**/target/jacoco/*.exec',
-                    
-                    //classPattern: '**/target/classes/com/myapp',
-                    
-                    classPattern: '**/target/classes',
-                    sourcePattern: '**/src/main/groovy'
-                    
-                    )
+                jacoco(
+                
+                classPattern: '**/target/classes',
+                sourcePattern: '**/src/main/groovy'
+                
+        
+                )
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
-                    
                 }
             }
-            
         
 }
+
