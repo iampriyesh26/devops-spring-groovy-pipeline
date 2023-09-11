@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Deepshikha-dey/devops-spring-devops2-pipeline.git'
+                git 'https://github.com/iampriyesh26/devops-spring-groovy-pipeline.git'
 
                 // Run Maven on a Unix agent.
                 script{
