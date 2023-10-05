@@ -1,0 +1,25 @@
+<configuration>
+  <appender name="consoleJSONAppender" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <!-- Make sure exception stack traces don't exceed Splunk's size limit -->
+      <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+        <maxDepthPerThrowable>30</maxDepthPerThrowable>
+        <maxLength>2048</maxLength>
+        <shortenedClassNameLength>20</shortenedClassNameLength>
+        <rootCauseFirst>true</rootCauseFirst>
+        <inlineHash>true</inlineHash>
+      </throwableConverter>
+    </encoder>
+  </appender>
+
+  <!-- Use Spring Boot default appender for local development -->
+  <springProfile name="local">
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+  </springProfile>
+  <!-- Use Logstash JSON appender when running in Kubernetes Pod -->
+  <springProfile name="!local">
+    <root level="INFO">
+      <appender-ref ref="consoleJSONAppender"/>
+    </root>
+  </springProfile>
+</configuration>
